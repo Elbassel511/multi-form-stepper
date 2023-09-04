@@ -1,0 +1,7 @@
+.add-on-price {
+  align-self: center;
+  margin-left: auto;
+  font-size: var(--fs-3);
+  color: var(--primary);
+  font-weight: 500;
+}

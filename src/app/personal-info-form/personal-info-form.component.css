@@ -1,0 +1,52 @@
+.container {
+  background-color: white;
+}
+
+.form {
+  margin-top: 2.4rem;
+}
+.input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.6rem;
+}
+
+.input-label {
+  color: var(--primary-dark);
+  font-size: var(--fs-2);
+}
+
+.input-field {
+  padding: 1.2rem 1.6rem;
+  border: 1px solid var(--tertiary);
+  border-radius: 5px;
+  color: var(--primary-dark);
+}
+
+.input-field:focus,
+.input:focus-visible,
+.input:focus-within {
+  border: 1px solid var(--primary);
+  outline: none;
+}
+
+input::placeholder {
+  font-family: var(--font);
+  font-weight: 700;
+  font-size: var(-fs-3);
+  color: var(--tertiary);
+}
+
+.input-error {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: var(--fs-3);
+  font-weight: 500;
+  color: var(--error);
+}
+input.invalid {
+  border: 1px solid var(--error);
+}

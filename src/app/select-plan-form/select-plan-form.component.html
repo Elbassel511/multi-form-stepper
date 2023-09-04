@@ -1,0 +1,56 @@
+<div [formGroup]="form">
+  <h3 class="title">Select your plan</h3>
+  <p class="muted-text">You have the option of monthly or yearly billing</p>
+  <div class="plans" formGroupName="plan">
+    <label
+      [class.selected]="
+        plan.name.toLowerCase() == selectedPlan?.value?.toLowerCase()
+      "
+      class="label"
+      *ngFor="let plan of plans"
+    >
+      <!--  -->
+      <!-- (click)="setSelectedPlan(plan.name)" -->
+      <input
+        type="radio"
+        class="hidden"
+        [id]="plan?.name?.toLowerCase()"
+        [value]="plan?.name?.toLowerCase()"
+        formControlName="selectedPlan"
+      />
+      <div
+        class="label__icon"
+        [style.backgroundImage]="'url(../../assets/images/' + plan.icon + ')'"
+      ></div>
+      <div class="label__details">
+        <div class="label__title">
+          {{ plan.name }}
+        </div>
+        <div class="label__price muted-text">
+          <ng-container *ngIf="!yearlyPeriod?.value; else yearlyPrice">
+            ${{ plan.monthlyPrice }}/mo
+          </ng-container>
+          <ng-template #yearlyPrice>
+            ${{ plan.yearlyPrice }}/yr
+            <span class="price__discount">2 months free</span>
+          </ng-template>
+        </div>
+      </div>
+    </label>
+  </div>
+  <div class="period" formGroupName="plan">
+    <span class="muted-text" [class.selected]="yearlyPeriod?.value == false"
+      >Monthly</span
+    >
+    <!-- switch -->
+    <span class="period__switch">
+      <label class="switch">
+        <input type="checkbox" formControlName="yearlyPeriod" />
+        <span class="slider round" [class.checked]="yearlyPeriod?.value"></span>
+      </label>
+    </span>
+    <span class="muted-text" [class.selected]="yearlyPeriod?.value == true"
+      >Yearly</span
+    >
+  </div>
+</div>

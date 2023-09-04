@@ -1,0 +1,28 @@
+<div [formGroup]="form">
+  <div class="title">Pick add-ons</div>
+  <p class="muted-text">Add-ons help enhance your gaming experience</p>
+  <div formGroupName="addOns">
+    <label
+      *ngFor="let addOn of addOns"
+      [for]="addOn.id"
+      class="label"
+      [class.selected]="selectedAddOns.includes(addOn.id)"
+    >
+      <!--  -->
+      <input [formControlName]="addOn.id" type="checkbox" [id]="addOn.id" />
+      <div>
+        <div class="label__title">{{ addOn.name }}</div>
+        <div class="muted-text label__extra fs-4">{{ addOn.extra }}</div>
+      </div>
+      <div class="add-on-price">
+        ${{ addOn.monthlyPrice }}/mo
+        <!-- <ng-container *ngIf="selectedPeriod === 'monthly'; else yearlyPrice">
+            ${{ plan.monthlyPrice }}/mo
+          </ng-container>
+          <ng-template #yearlyPrice>
+            ${{ plan.yearlyPrice }}/yr
+            <span class="price__discount">2 months free</span> -->
+      </div>
+    </label>
+  </div>
+</div>

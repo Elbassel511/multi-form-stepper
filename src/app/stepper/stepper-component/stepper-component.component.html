@@ -1,0 +1,32 @@
+<!-- <ng-template #trial>
+  <div>1</div>
+</ng-template> -->
+<header class="header">
+  <ul class="step-labels">
+    <ng-container *ngFor="let step of steps; let i = index">
+      <li class="step-label" [class.active]="selectedIndex == i">
+        <span class="step-label__number">
+          {{ i + 1 }}
+        </span>
+        <span class="step-label__text" (click)="log(step)">
+          {{ step.label }}
+        </span>
+      </li>
+    </ng-container>
+  </ul>
+</header>
+<div class="container">
+  <!-- header template in large scree -->
+  <!-- <div [ngTemplateOutlet]="trial"></div> -->
+
+  <div [style.display]="selected ? 'block' : 'none'">
+    <!-- Content from the CdkStep is projected here -->
+
+    <ng-container
+      [ngTemplateOutlet]="selected ? selected.content : null"
+    ></ng-container>
+  </div>
+</div>
+
+<button class="nav-button" cdkStepperPrevious>&larr;</button>
+<button class="nav-button" cdkStepperNext>&rarr;</button>
