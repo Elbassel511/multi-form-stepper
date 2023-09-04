@@ -41,4 +41,8 @@ export class AddOnsFormComponent {
     });
     return selectedAddons;
   }
+
+  get yearlyPeriod() {
+    return this.form.get('plan.yearlyPeriod')?.value;
+  }
 }

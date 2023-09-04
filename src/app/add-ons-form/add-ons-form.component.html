@@ -15,13 +15,10 @@
         <div class="muted-text label__extra fs-4">{{ addOn.extra }}</div>
       </div>
       <div class="add-on-price">
-        ${{ addOn.monthlyPrice }}/mo
-        <!-- <ng-container *ngIf="selectedPeriod === 'monthly'; else yearlyPrice">
-            ${{ plan.monthlyPrice }}/mo
-          </ng-container>
-          <ng-template #yearlyPrice>
-            ${{ plan.yearlyPrice }}/yr
-            <span class="price__discount">2 months free</span> -->
+        <ng-container *ngIf="!yearlyPeriod; else yearlyPrice">
+          ${{ addOn.monthlyPrice }}/mo
+        </ng-container>
+        <ng-template #yearlyPrice> ${{ addOn.yearlyPrice }}/yr </ng-template>
       </div>
     </label>
   </div>
