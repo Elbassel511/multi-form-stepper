@@ -1,3 +1,4 @@
+import { addOns as addOnsData } from './../data/data';
 import { FormGroup } from '@angular/forms';
 import { Component, Input } from '@angular/core';
 
@@ -8,30 +9,7 @@ import { Component, Input } from '@angular/core';
 })
 export class AddOnsFormComponent {
   @Input('form') form!: FormGroup;
-
-  addOns = [
-    {
-      id: 'onlineService',
-      name: 'Online service',
-      monthlyPrice: 1,
-      yearlyPrice: 10,
-      extra: 'Access to multiplayer games',
-    },
-    {
-      id: 'largerStorage',
-      name: 'Larger storage',
-      monthlyPrice: 2,
-      yearlyPrice: 20,
-      extra: 'Extra 1TB of cloud save',
-    },
-    {
-      id: 'customizableProfile',
-      name: 'Customizable profile',
-      monthlyPrice: 2,
-      yearlyPrice: 20,
-      extra: 'Custom theme on your profile',
-    },
-  ];
+  addOns = addOnsData;
 
   get selectedAddOns() {
     let selectedAddons: string[] = [];

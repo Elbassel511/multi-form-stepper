@@ -8,6 +8,7 @@ import { PersonalInfoFormComponent } from './personal-info-form/personal-info-fo
 import { SelectPlanFormComponent } from './select-plan-form/select-plan-form.component';
 import { AddOnsFormComponent } from './add-ons-form/add-ons-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SummaryComponent } from './summary/summary.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PersonalInfoFormComponent,
     SelectPlanFormComponent,
     AddOnsFormComponent,
+    SummaryComponent,
   ],
   imports: [BrowserModule, CdkStepperModule, FormsModule, ReactiveFormsModule],
   providers: [],

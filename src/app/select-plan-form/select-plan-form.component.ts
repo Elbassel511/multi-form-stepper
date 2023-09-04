@@ -1,5 +1,6 @@
 import { FormGroup } from '@angular/forms';
 import { Component, Input } from '@angular/core';
+import { plans as plansData } from '../data/data';
 
 @Component({
   selector: 'select-plan-form',
@@ -9,21 +10,7 @@ import { Component, Input } from '@angular/core';
 export class SelectPlanFormComponent {
   @Input('form') form!: FormGroup;
 
-  plans = [
-    {
-      name: 'Arcade',
-      monthlyPrice: 9,
-      yearlyPrice: 90,
-      icon: 'icon-arcade.svg',
-    },
-    {
-      name: 'Advanced',
-      monthlyPrice: 12,
-      yearlyPrice: 120,
-      icon: 'icon-advanced.svg',
-    },
-    { name: 'Pro', monthlyPrice: 15, yearlyPrice: 150, icon: 'icon-pro.svg' },
-  ];
+  plans = plansData;
 
   get selectedPlan() {
     return this.form.get('plan.selectedPlan');
