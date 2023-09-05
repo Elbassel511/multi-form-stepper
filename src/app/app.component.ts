@@ -1,5 +1,6 @@
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CdkStepper } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-root',
@@ -21,9 +22,15 @@ export class AppComponent {
       yearlyPeriod: new FormControl(false),
     }),
     addOns: new FormGroup({
-      onlineService: new FormControl(),
-      largerStorage: new FormControl(),
-      customizableProfile: new FormControl(),
+      onlineService: new FormControl(false),
+      largerStorage: new FormControl(false),
+      customizableProfile: new FormControl(false),
     }),
   });
+
+  @ViewChild('cdkStepper') cdkStepper: CdkStepper | undefined;
+
+  reset() {
+    this.cdkStepper?.reset();
+  }
 }

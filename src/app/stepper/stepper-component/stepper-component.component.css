@@ -45,10 +45,46 @@
 }
 
 .container {
-  width: 34.5rem;
+  width: min(34.5rem  , 80vw);
+
   padding: 3.2rem 2.4rem;
   background-color: var(--light);
   border-radius: 10px;
   margin: auto;
   margin-top: -7.2rem;
+}
+
+.footer{
+  position: absolute;
+  bottom: 0;
+  left:   0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding:2.4rem 1.6rem;
+  background-color: var(--light);
+}
+
+.button__next{
+background-color: var(--primary-dark);
+padding-block: 1rem;
+color: var(--light);
+border-radius: 5px;
+margin-left: auto;
+width:9.8rem
+}
+.button__next.confirm{
+  background-color: var(--primary);
+}
+
+.nav-button{
+  border: none;
+  cursor: pointer;
+  font-size: var(--fs-3);
+  font-family: var(--font);
+}
+
+.button__previous{
+  background-color: transparent;
+  color:  var(--tertiary);
 }

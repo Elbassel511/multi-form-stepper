@@ -1,6 +1,6 @@
 <main class="main">
   <form [formGroup]="stepperForm">
-    <app-stepper-component linear="true">
+    <app-stepper-component linear="true" #cdkStepper>
       <cdk-step label="your info" formGroupName="personalInfo">
         <personal-info-form [form]="stepperForm"></personal-info-form>
       </cdk-step>
@@ -10,8 +10,10 @@
       <cdk-step label="add-ons">
         <app-add-ons-form [form]="stepperForm"></app-add-ons-form>
       </cdk-step>
-      <cdk-step label="summary"> Step 4 </cdk-step>
+      <cdk-step label="summary">
+        <app-summary [form]="stepperForm" (resetStepper)="reset()" />
+      </cdk-step>
     </app-stepper-component>
   </form>
 </main>
-{{ stepperForm.value | json }}
+<!-- {{ stepperForm.value | json }} -->

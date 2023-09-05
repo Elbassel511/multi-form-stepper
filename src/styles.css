@@ -63,7 +63,7 @@ html {
   font-size: 0.625rem;
 }
 
-/* custom utilites */
+/* custom utilities */
 
 .fw-light {
   font-weight: 400;
@@ -77,6 +77,17 @@ html {
   font-weight: 700;
 }
 
+.fs-1 {
+  font-size: var(--fs-1);
+}
+.fs-2 {
+  font-size: var(--fs-2);
+}
+
+.fs-3 {
+  font-size: var(--fs-3);
+}
+
 .fs-4 {
   font-size: var(--fs-4);
 }
@@ -84,6 +95,11 @@ html {
 .primary-text {
   color: var(--primary-dark);
 }
+
+.highlighted-text{
+  color:var(--primary)
+}
+
 .muted-text {
   color: var(--tertiary);
 }
@@ -102,6 +118,7 @@ html {
   font-size: var(--fs-1);
   font-weight: 700;
   margin-bottom: 1.6rem;
+  color:var(--primary-dark)
 }
 
 /*  */
@@ -137,6 +154,7 @@ body {
   font-size: var(--fs-2);
   font-weight: 500;
   margin-bottom: 0.8rem;
+  color:var(--primary-dark)
 }
 .label__price {
   font-size: var(--fs-3);

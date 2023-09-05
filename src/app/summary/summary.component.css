@@ -1,0 +1,44 @@
+.muted--container{
+    margin-top: 1.6rem;
+    background-color: var(--light-100);
+    border-radius: 4px;
+    padding:2.4rem 1.6rem;
+}
+
+.plan{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reset--btn{
+    cursor: pointer;
+    padding: 0;
+    color:var(--tertiary);
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+}
+.label__title {
+    margin-bottom: 0;
+}
+
+hr{
+    height: 1px;
+    border: none;
+    background-color:var(--light-200);
+}
+
+.total--price,.add-on{
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-on{
+    margin-top: 1rem;
+}
+
+.total--price {
+    padding-inline:1.6rem;
+    margin-top: 3.2rem;
+}

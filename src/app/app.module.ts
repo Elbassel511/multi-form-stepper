@@ -9,6 +9,7 @@ import { SelectPlanFormComponent } from './select-plan-form/select-plan-form.com
 import { AddOnsFormComponent } from './add-ons-form/add-ons-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SummaryComponent } from './summary/summary.component';
+import { PlanDetailsService } from './plan-details.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { SummaryComponent } from './summary/summary.component';
     SummaryComponent,
   ],
   imports: [BrowserModule, CdkStepperModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  providers: [PlanDetailsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

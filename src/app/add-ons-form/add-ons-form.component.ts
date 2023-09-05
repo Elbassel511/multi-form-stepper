@@ -1,6 +1,7 @@
-import { addOns as addOnsData } from './../data/data';
 import { FormGroup } from '@angular/forms';
 import { Component, Input } from '@angular/core';
+import { inject } from '@angular/core';
+import { PlanDetailsService } from '../plan-details.service';
 
 @Component({
   selector: 'app-add-ons-form',
@@ -9,18 +10,17 @@ import { Component, Input } from '@angular/core';
 })
 export class AddOnsFormComponent {
   @Input('form') form!: FormGroup;
-  addOns = addOnsData;
+  planService = inject(PlanDetailsService);
 
-  get selectedAddOns() {
-    let selectedAddons: string[] = [];
-    this.addOns.forEach((addOn) => {
-      if (this.form.get('addOns.' + addOn.id)?.value === true)
-        selectedAddons.push(addOn.id);
-    });
-    return selectedAddons;
+  get addOns() {
+    return this.planService.getAllAddons();
   }
 
-  get yearlyPeriod() {
-    return this.form.get('plan.yearlyPeriod')?.value;
+  get selectedPeriod() {
+    return this.planService.selectedPeriod(this.form);
+  }
+
+  get selectedAddOnsIds() {
+    return this.planService.selectedAddOns(this.form).map((a) => a.id);
   }
 }

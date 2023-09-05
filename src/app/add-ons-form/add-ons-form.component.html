@@ -6,7 +6,7 @@
       *ngFor="let addOn of addOns"
       [for]="addOn.id"
       class="label"
-      [class.selected]="selectedAddOns.includes(addOn.id)"
+      [class.selected]="selectedAddOnsIds.includes(addOn.id)"
     >
       <!--  -->
       <input [formControlName]="addOn.id" type="checkbox" [id]="addOn.id" />
@@ -15,7 +15,7 @@
         <div class="muted-text label__extra fs-4">{{ addOn.extra }}</div>
       </div>
       <div class="add-on-price">
-        <ng-container *ngIf="!yearlyPeriod; else yearlyPrice">
+        <ng-container *ngIf="selectedPeriod == 'monthly'; else yearlyPrice">
           ${{ addOn.monthlyPrice }}/mo
         </ng-container>
         <ng-template #yearlyPrice> ${{ addOn.yearlyPrice }}/yr </ng-template>

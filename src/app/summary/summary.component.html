@@ -1,1 +1,43 @@
-<p>summary works!</p>
+<div [formGroup]="form">
+  <h2 class="title">Finishing up</h2>
+  <p class="muted-text">Double-check everything looks OK before confirming.</p>
+  <div class="muted--container">
+    <div class="plan" *ngIf="plan">
+      <div>
+        <div class="label__title">{{ plan.name }}({{ selectedPeriod }})</div>
+        <button class="reset--btn" type="button" (click)="resetForm()">
+          Change
+        </button>
+      </div>
+      <div class="plan--price primary-text fw-bold">
+        <ng-container *ngIf="selectedPeriod == 'monthly'; else yearlyPlan">
+          ${{ plan.monthlyPrice }}/mo
+        </ng-container>
+        <ng-template #yearlyPlan> ${{ plan.yearlyPrice }}/yr </ng-template>
+      </div>
+    </div>
+    <hr />
+    <div class="add-ons" *ngIf="addOnsData.length > 0; else noAddOns">
+      <div class="add-on" *ngFor="let addOn of addOnsData">
+        <div class="add-on__title muted-text fs-3">
+          {{ addOn.name }}
+        </div>
+        <div class="add-on__price fs-3 primary-text fw-normal">
+          <ng-container *ngIf="selectedPeriod == 'monthly'; else yearly">
+            +${{ addOn.monthlyPrice }}/mo
+          </ng-container>
+          <ng-template #yearly> +${{ addOn.yearlyPrice }}/yr </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="total--price">
+    <span class="muted-text fs-2">
+      Total (per {{ selectedPeriod === "yearly" ? "year" : "month" }})
+    </span>
+    <span class="highlighted-text fw-bold fs-2">+${{ totalPrice }}/mo</span>
+  </div>
+</div>
+<ng-template #noAddOns>
+  <span class="muted-text fs-3">NO ADD-ONS where selected </span>
+</ng-template>

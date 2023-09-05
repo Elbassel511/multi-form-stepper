@@ -27,6 +27,21 @@
     ></ng-container>
   </div>
 </div>
-
-<button class="nav-button" cdkStepperPrevious>&larr;</button>
-<button class="nav-button" cdkStepperNext>&rarr;</button>
+<footer class="footer">
+  <button
+    class="nav-button button__previous"
+    [class.hidden]="selectedIndex == 0"
+    type="button"
+    cdkStepperPrevious
+  >
+    Go Back
+  </button>
+  <button
+    class="nav-button button__next"
+    [class.confirm]="selectedIndex == 3"
+    type="button"
+    cdkStepperNext
+  >
+    {{ selectedIndex == 3 ? "Confirm" : "Next Step" }}
+  </button>
+</footer>
